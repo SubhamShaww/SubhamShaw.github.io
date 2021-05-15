@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply rounded-full font-medium border p-4 bg-yellow-600 hover:border-yellow-600 hover:text-gray-900 hover:bg-transparent text-white focus:outline-none;
+    }
+
+    .btn-contact {
+        @apply rounded-full font-medium border p-3 bg-yellow-600 hover:border-yellow-600 hover:bg-transparent text-white focus:outline-none;
+    }
+}
