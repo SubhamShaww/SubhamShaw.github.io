@@ -14,6 +14,7 @@ function Intro() {
 
             {/* right */}
             <div className="flex flex-col items-center sm:items-start">
+                {/* top */}
                 <div className="space-y-2 text-center sm:text-left">
                     <p className="text-lg font-medium text-yellow-600">
                         Hi, I am
@@ -26,12 +27,18 @@ function Intro() {
                     </p>
                 </div>
 
-                <button className="btn w-full sm:w-min mt-6">
-                    <div className="flex space-x-2 justify-center">
+                {/* bottom */}
+                <a
+                    href="https://google.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn w-full sm:w-min mt-6"
+                >
+                    <div className="flex space-x-2 justify-center items-center">
                         <DocumentDownloadIcon className="h-6" />
                         <p>Resume</p>
                     </div>
-                </button>
+                </a>
             </div>
         </div>
     );

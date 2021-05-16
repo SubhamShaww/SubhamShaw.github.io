@@ -27,7 +27,6 @@ export default function Home() {
             </div>
 
             {/* Footer */}
-            {/* footer will contain contact links and it will be sticky */}
             <Footer />
         </div>
     );

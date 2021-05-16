@@ -10,17 +10,32 @@ function Footer() {
 
             {/* right */}
             <div className="flex items-center space-x-4">
-                <button className="btn-contact w-full sm:w-min">
-                    <p>Github</p>
-                </button>
+                <a
+                    href="https://www.linkedin.com/in/subham-shaw-3185731a2/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-contact w-full sm:w-min"
+                >
+                    LinkedIn
+                </a>
 
-                <button className="btn-contact w-full sm:w-min">
-                    <p>LinkedIn</p>
-                </button>
+                <a
+                    href="https://github.com/SubhamShaww"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-contact w-full sm:w-min"
+                >
+                    Github
+                </a>
 
-                <button className="btn-contact w-full sm:w-min">
+                <a
+                    href="mailto:sub.show@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-contact w-full sm:w-min"
+                >
                     <MailIcon className="h-6" />
-                </button>
+                </a>
             </div>
         </div>
     );
