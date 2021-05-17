@@ -1,6 +1,6 @@
 import { MailIcon } from "@heroicons/react/outline";
 
-function Footer() {
+function Footer({ gmail, linkedin, github }) {
     return (
         <div className="bg-gray-900 flex items-center px-[5%] py-5 text-sm sticky">
             {/* left */}
@@ -11,7 +11,7 @@ function Footer() {
             {/* right */}
             <div className="flex items-center space-x-4">
                 <a
-                    href="https://www.linkedin.com/in/subham-shaw-3185731a2/"
+                    href={linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-contact w-full sm:w-min"
@@ -20,7 +20,7 @@ function Footer() {
                 </a>
 
                 <a
-                    href="https://github.com/SubhamShaww"
+                    href={github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-contact w-full sm:w-min"
@@ -29,7 +29,7 @@ function Footer() {
                 </a>
 
                 <a
-                    href="mailto:sub.show@gmail.com"
+                    href={`mailto:${gmail}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-contact w-full sm:w-min"
