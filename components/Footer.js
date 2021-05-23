@@ -1,4 +1,6 @@
 import { MailIcon } from "@heroicons/react/outline";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 function Footer({ gmail, linkedin, github }) {
     return (
@@ -16,7 +18,7 @@ function Footer({ gmail, linkedin, github }) {
                     rel="noopener noreferrer"
                     className="btn-contact w-full sm:w-min"
                 >
-                    LinkedIn
+                    <FontAwesomeIcon className="h-6" icon={faLinkedin} />
                 </a>
 
                 <a
@@ -25,7 +27,7 @@ function Footer({ gmail, linkedin, github }) {
                     rel="noopener noreferrer"
                     className="btn-contact w-full sm:w-min"
                 >
-                    Github
+                    <FontAwesomeIcon className="h-6" icon={faGithub} />
                 </a>
 
                 <a
