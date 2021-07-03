@@ -5,7 +5,13 @@ function Project({ image = "", title = "", website = "", github = "" }) {
     return (
         <div className="flex flex-col space-y-10 justify-center bg-gray-100 border border-gray-200 p-[5%] sm:transition sm:transform sm:hover:scale-110">
             {/* top */}
-            <Image src={image} width={300} height={200} />
+            <Image
+                loading="lazy"
+                src={image}
+                width={300}
+                height={200}
+                objectFit="cover"
+            />
 
             {/* bottom */}
             <div className="flex flex-col">
