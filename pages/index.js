@@ -6,7 +6,7 @@ import db from "../firebaseConfig";
 
 export default function Home({ profileInfo, projects, contacts }) {
     return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full h-screen flex flex-col">
             <Head>
                 <title>Portfolio</title>
                 <meta name="description" content="Portfolio of Subham Shaw" />
@@ -19,19 +19,21 @@ export default function Home({ profileInfo, projects, contacts }) {
                 resume={profileInfo[0].resume}
             />
 
-            <p className="text-3xl text-center font-black text-gray-900 mt-12">
-                Recent Projects
-            </p>
-            <div className="flex flex-col space-y-10 p-[5%] sm:flex-row sm:space-y-0 sm:space-x-10  sm:overflow-x-scroll sm:mx-[5%]">
-                {projects?.map((project) => (
-                    <Project
-                        key={project.id}
-                        image={project.image}
-                        title={project.title}
-                        website={project.website}
-                        github={project.github}
-                    />
-                ))}
+            <div className="flex-grow">
+                <p className="text-3xl text-center font-black text-gray-900 mt-12">
+                    Recent Projects
+                </p>
+                <div className="flex flex-col space-y-10 p-[5%] sm:flex-row sm:space-y-0 sm:space-x-10  sm:overflow-x-scroll sm:mx-[5%]">
+                    {projects?.map((project) => (
+                        <Project
+                            key={project.id}
+                            image={project.image}
+                            title={project.title}
+                            website={project.website}
+                            github={project.github}
+                        />
+                    ))}
+                </div>
             </div>
 
             {/* Footer */}
