@@ -2,6 +2,7 @@ import Head from "next/head";
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
 import Project from "../components/Project";
+import About from "../components/About";
 import db from "../firebaseConfig";
 
 export default function Home({ profileInfo, projects, contacts }) {
@@ -18,6 +19,10 @@ export default function Home({ profileInfo, projects, contacts }) {
                 picture={profileInfo[0].picture}
                 resume={profileInfo[0].resume}
             />
+
+            <About />
+            {/* Expertise */}
+            {/* Qualifications */}
 
             <p className="text-3xl text-center font-black text-gray-900 mt-12">
                 Recent Projects
