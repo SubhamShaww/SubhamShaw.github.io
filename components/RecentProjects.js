@@ -2,11 +2,11 @@ import Project from './Project';
 
 function RecentProjects({projects}) {
     return (
-        <div>
-            <p className="mt-12 mb-10 text-3xl font-black text-center text-gray-900 sm:mb-0">
-                Recent Projects
-            </p>
-            <div className="flex flex-col space-y-10 p-[5%] sm:flex-row sm:space-y-0 sm:space-x-10  sm:overflow-x-scroll sm:mx-[5%]">
+        <div className="section-box">
+            <p className="section-heading-1">My Portfolio</p>
+            <p className="section-heading-2">Recent Projects</p>
+
+            <div className="flex flex-col space-y-10 sm:flex-row sm:space-y-0 sm:space-x-10 sm:overflow-x-scroll">
                 {projects?.map((project) => (
                     <Project
                         key={project.id}

@@ -4,8 +4,9 @@ import Intro from "../components/Intro";
 import Expertise from '../components/Expertise';
 import RecentProjects from '../components/RecentProjects';
 import db from "../firebaseConfig";
+import Qualification from "../components/Qualification";
 
-export default function Home({profileInfo, skillsInfo, projects, contacts}) {
+export default function Home({profileInfo, skillsInfo, qualificationData, projects, contacts}) {
     return (
         <div className="w-full overflow-hidden">
             <Head>
@@ -22,8 +23,7 @@ export default function Home({profileInfo, skillsInfo, projects, contacts}) {
             />
 
             <Expertise skills={skillsInfo} />
-            {/* Qualifications */}
-
+            <Qualification qualification={qualificationData} />
 
             <RecentProjects projects={projects} />
 
@@ -52,6 +52,40 @@ export const getStaticProps = async () => {
         ...skills.data(),
     }));
 
+    const qualificationObject = await db.collection("qualification").get();
+
+    const qualificationInfo = qualificationObject.docs.map((qualification) => ({
+        id: qualification.id,
+        ...qualification.data(),
+    }));
+
+    let qualificationData = {
+        education: {
+            id: qualificationInfo[0].id,
+            list: []
+        },
+        experience: {
+            id: qualificationInfo[1].id,
+            list: []
+        }
+    }
+
+    db.collection("qualification")
+        .doc(qualificationData.education.id)
+        .collection("educationList")
+        .orderBy("startYear", "desc")
+        .onSnapshot((snapshot) =>
+            qualificationData.education.list = (snapshot.docs.map((doc) => doc.data()))
+        );
+
+    db.collection("qualification")
+        .doc(qualificationData.experience.id)
+        .collection("experienceList")
+        .orderBy("startYear", "desc")
+        .onSnapshot((snapshot) =>
+            qualificationData.experience.list = (snapshot.docs.map((doc) => doc.data()))
+        );
+
     const projectObject = await db
         .collection("projects")
         .orderBy("added", "desc")
@@ -71,7 +105,7 @@ export const getStaticProps = async () => {
     }));
 
     return {
-        props: {profileInfo, skillsInfo, projects, contacts},
+        props: {profileInfo, skillsInfo, qualificationData, projects, contacts},
         revalidate: 600,
     };
 };
