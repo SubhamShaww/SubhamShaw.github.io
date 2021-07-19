@@ -4,10 +4,31 @@
 
 @layer components {
     .btn {
-        @apply rounded-full font-medium border px-4 py-3 cursor-pointer bg-yellow-600 hover:border-yellow-600 hover:text-gray-900 hover:bg-transparent text-white focus:outline-none;
+        @apply px-4 py-3 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:text-gray-900 hover:bg-transparent focus:outline-none;
     }
 
     .btn-contact {
-        @apply rounded-full font-medium border px-3 py-2 cursor-pointer bg-yellow-600 hover:border-yellow-600 hover:bg-transparent text-white focus:outline-none;
+        @apply px-3 py-2 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:bg-transparent focus:outline-none;
+    }
+
+    progress {
+        -webkit-appearance: none;
+        height: 1rem;
+        overflow: hidden;
+        border-radius: 1rem;
+    }
+
+    progress::-webkit-progress-bar {
+        @apply bg-gray-300;
+    }
+
+    progress::-webkit-progress-value {
+        @apply bg-yellow-600;
+    }
+
+    .bg-image {
+        background-image: url('../public/pattern-bg.png');
+        background-position: center;
+        background-size: cover;
     }
 }

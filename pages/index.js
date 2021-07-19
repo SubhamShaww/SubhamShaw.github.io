@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
-import Project from "../components/Project";
-import About from "../components/About";
+import Expertise from '../components/Expertise';
+import RecentProjects from '../components/RecentProjects';
 import db from "../firebaseConfig";
 
-export default function Home({ profileInfo, projects, contacts }) {
+export default function Home({profileInfo, skillsInfo, projects, contacts}) {
     return (
         <div className="w-full overflow-hidden">
             <Head>
@@ -18,26 +18,14 @@ export default function Home({ profileInfo, projects, contacts }) {
             <Intro
                 picture={profileInfo[0].picture}
                 resume={profileInfo[0].resume}
+                designation={profileInfo[0].designation}
             />
 
-            <About />
-            {/* Expertise */}
+            <Expertise skills={skillsInfo} />
             {/* Qualifications */}
 
-            <p className="text-3xl text-center font-black text-gray-900 mt-12">
-                Recent Projects
-            </p>
-            <div className="flex flex-col space-y-10 p-[5%] sm:flex-row sm:space-y-0 sm:space-x-10  sm:overflow-x-scroll sm:mx-[5%]">
-                {projects?.map((project) => (
-                    <Project
-                        key={project.id}
-                        image={project.image}
-                        title={project.title}
-                        website={project.website}
-                        github={project.github}
-                    />
-                ))}
-            </div>
+
+            <RecentProjects projects={projects} />
 
             {/* Footer */}
             <Footer
@@ -55,6 +43,13 @@ export const getStaticProps = async () => {
     const profileInfo = profileObject.docs.map((info) => ({
         id: info.id,
         ...info.data(),
+    }));
+
+    const skillsObject = await db.collection("skills").get();
+
+    const skillsInfo = skillsObject.docs.map((skills) => ({
+        id: skills.id,
+        ...skills.data(),
     }));
 
     const projectObject = await db
@@ -76,7 +71,7 @@ export const getStaticProps = async () => {
     }));
 
     return {
-        props: { profileInfo, projects, contacts },
+        props: {profileInfo, skillsInfo, projects, contacts},
         revalidate: 600,
     };
 };

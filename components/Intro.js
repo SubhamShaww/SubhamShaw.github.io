@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { DocumentDownloadIcon } from "@heroicons/react/outline";
+import {DocumentDownloadIcon} from "@heroicons/react/outline";
 
-function Intro({ picture, resume }) {
+function Intro({picture, resume, designation}) {
     return (
         <div className="flex flex-col items-center p-[5%] space-y-10 sm:space-y-0 sm:flex-row justify-center sm:space-x-[15%] bg-gray-100">
             {/* left */}
@@ -15,7 +15,7 @@ function Intro({ picture, resume }) {
             {/* right */}
             <div className="flex flex-col items-center sm:items-start">
                 {/* top */}
-                <div className="space-y-2 text-center sm:text-left">
+                <div className="text-center space-y-2 sm:text-left">
                     <p className="text-lg font-medium text-yellow-600">
                         Hi, I am
                     </p>
@@ -23,7 +23,7 @@ function Intro({ picture, resume }) {
                         Subham Shaw
                     </p>
                     <p className="text-lg font-medium text-gray-900">
-                        Software Engineer
+                        {designation}
                     </p>
                 </div>
 
@@ -32,9 +32,9 @@ function Intro({ picture, resume }) {
                     href={resume}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn w-full sm:w-min mt-6"
+                    className="w-full mt-6 btn sm:w-min"
                 >
-                    <div className="flex space-x-2 justify-center items-center">
+                    <div className="flex items-center justify-center space-x-2">
                         <DocumentDownloadIcon className="h-6" />
                         <p>Resume</p>
                     </div>
