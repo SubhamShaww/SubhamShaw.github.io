@@ -5,6 +5,7 @@ import Expertise from '../components/Expertise';
 import RecentProjects from '../components/RecentProjects';
 import db from "../firebaseConfig";
 import Qualification from "../components/Qualification";
+import Services from "../components/Services";
 
 export default function Home({profileInfo, skillsInfo, qualificationData, projects, contacts}) {
     return (
@@ -23,7 +24,10 @@ export default function Home({profileInfo, skillsInfo, qualificationData, projec
             />
 
             <Expertise skills={skillsInfo} />
+
             <Qualification qualification={qualificationData} />
+
+            <Services />
 
             <RecentProjects projects={projects} />
 

@@ -15,7 +15,6 @@
         -webkit-appearance: none;
         height: 1rem;
         overflow: hidden;
-        border-radius: 1rem;
     }
 
     progress::-webkit-progress-bar {
@@ -32,8 +31,12 @@
         background-size: cover;
     }
 
+    .section-bg-color {
+        @apply bg-blue-50;
+    }
+
     .section-box {
-        @apply flex flex-col items-center p-[5%];
+        @apply flex flex-col items-center py-[7%] px-[10%];
     }
 
     .section-heading-1 {
@@ -46,6 +49,14 @@
 
     .timeline {
         @apply pl-4 border-l border-yellow-600 ;
+    }
+
+    .used-grid-template-1 {
+        @apply w-full grid gap-y-8 sm:grid-cols-2 sm:gap-x-[15%];
+    }
+
+    .used-grid-template-2 {
+        @apply w-full grid gap-y-14 sm:grid-cols-2 sm:gap-x-[15%];
     }
 
 }

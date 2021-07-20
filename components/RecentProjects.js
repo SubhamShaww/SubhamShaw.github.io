@@ -2,7 +2,7 @@ import Project from './Project';
 
 function RecentProjects({projects}) {
     return (
-        <div className="section-box">
+        <div className="section-box section-bg-color">
             <p className="section-heading-1">My Portfolio</p>
             <p className="section-heading-2">Recent Projects</p>
 
