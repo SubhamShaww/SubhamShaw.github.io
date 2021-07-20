@@ -12,7 +12,7 @@ function QualificationCategory({list, category}) {
 
             <div className="space-y-6">
                 {list.map((each) => (
-                    <EachQualification name={each.name} type={each.type} startYear={each.startYear} endYear={each.endYear} />
+                    <EachQualification key={each.id} name={each.name} type={each.type} startYear={each.startYear} endYear={each.endYear} />
                 ))}
             </div>
         </div>

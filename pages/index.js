@@ -75,7 +75,10 @@ export const getStaticProps = async () => {
         .collection("educationList")
         .orderBy("startYear", "desc")
         .onSnapshot((snapshot) =>
-            qualificationData.education.list = (snapshot.docs.map((doc) => doc.data()))
+            qualificationData.education.list = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }))
         );
 
     db.collection("qualification")
@@ -83,7 +86,10 @@ export const getStaticProps = async () => {
         .collection("experienceList")
         .orderBy("startYear", "desc")
         .onSnapshot((snapshot) =>
-            qualificationData.experience.list = (snapshot.docs.map((doc) => doc.data()))
+            qualificationData.experience.list = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }))
         );
 
     const projectObject = await db
