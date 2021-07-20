@@ -27,7 +27,7 @@
     }
 
     .bg-image {
-        background-image: url('../public/pattern-bg.png');
+        background-image: url('/pattern-bg.png');
         background-position: center;
         background-size: cover;
     }
