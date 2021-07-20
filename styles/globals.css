@@ -7,8 +7,16 @@
         @apply px-4 py-3 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:text-gray-900 hover:bg-transparent focus:outline-none;
     }
 
+    .btn-2 {
+        @apply px-4 py-3;
+        @apply font-medium text-gray-900;
+        @apply bg-transparent;
+        @apply border border-yellow-600 rounded-full cursor-pointer;
+        @apply hover:bg-yellow-600 hover:text-white;
+    }
+
     .btn-contact {
-        @apply px-3 py-2 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:bg-transparent focus:outline-none;
+        @apply px-2 py-2 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:bg-transparent focus:outline-none;
     }
 
     progress {
@@ -35,6 +43,13 @@
         @apply bg-blue-50;
     }
 
+    .intro-box {
+        @apply bg-gray-100;
+        @apply used-grid-template-1;
+        @apply items-center text-center sm:text-left;
+        @apply py-[7%] px-[10%];
+    }
+
     .section-box {
         @apply flex flex-col items-center py-[7%] px-[10%];
     }
@@ -52,11 +67,20 @@
     }
 
     .used-grid-template-1 {
-        @apply w-full grid gap-y-8 sm:grid-cols-2 sm:gap-x-[15%];
+        @apply w-full grid gap-y-8 sm:grid-cols-2 sm:gap-x-[10%];
     }
 
     .used-grid-template-2 {
-        @apply w-full grid gap-y-14 sm:grid-cols-2 sm:gap-x-[15%];
+        @apply w-full grid gap-y-14 sm:grid-cols-2 sm:gap-x-[10%];
+    }
+
+    .btns-grid-template {
+        @apply grid gap-y-2 sm:grid-flow-col sm:auto-cols-max sm:gap-x-4;
+    }
+
+    .footer-box {
+        @apply bg-gray-900 px-[10%] py-4;
+        @apply sticky flex items-center text-sm;
     }
 
 }

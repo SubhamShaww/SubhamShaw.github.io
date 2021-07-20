@@ -36,6 +36,7 @@ export default function Home({profileInfo, skillsInfo, qualificationData, projec
                 linkedin={contacts[0].linkedin}
                 github={contacts[0].github}
                 gmail={contacts[0].gmail}
+                facebook={contacts[0].facebook}
             />
         </div>
     );
