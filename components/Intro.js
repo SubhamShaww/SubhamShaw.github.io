@@ -43,7 +43,7 @@ function Intro({picture, resume, designation}) {
                         </div>
                     </a>
                     <a
-                        href="#"
+                        href="#contact"
                         className="w-full btn-2 sm:w-auto"
                     >
                         <div className="flex justify-center space-x-2">

@@ -34,7 +34,7 @@ function ContactDetails({gmail, mobile}) {
     }
 
     return (
-        <div className="section-box bg-image-2">
+        <div className="section-box bg-image-2" id="contact">
             <p className="section-heading-1">Contact Me</p>
             <p className="section-heading-2">Get In Touch</p>
 

@@ -1,4 +1,3 @@
-import {MailIcon} from "@heroicons/react/outline";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faLinkedin, faFacebook} from "@fortawesome/free-brands-svg-icons";
 
@@ -7,7 +6,7 @@ function Footer({linkedin, github, facebook}) {
         <div className="footer-box">
             {/* left */}
             <p className="flex-grow text-sm font-semibold text-gray-100 sm:text-lg">
-                GET IN TOUCH
+                SUBHAM SHAW
             </p>
 
             {/* right */}
