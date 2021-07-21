@@ -11,7 +11,7 @@ function Intro({picture, resume, designation}) {
                 width={260}
                 layout="responsive"
                 objectFit="cover"
-                className="rounded-full"
+                className="rounded-full select-none"
             />
 
             {/* right */}
@@ -35,7 +35,7 @@ function Intro({picture, resume, designation}) {
                         href={resume}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full btn sm:w-auto"
+                        className="w-full select-none btn sm:w-auto"
                     >
                         <div className="flex justify-center space-x-2">
                             <DocumentDownloadIcon className="h-6" />
@@ -44,7 +44,7 @@ function Intro({picture, resume, designation}) {
                     </a>
                     <a
                         href="#contact"
-                        className="w-full btn-2 sm:w-auto"
+                        className="w-full select-none btn-2 sm:w-auto"
                     >
                         <div className="flex justify-center space-x-2">
                             <IdentificationIcon className="h-6" />

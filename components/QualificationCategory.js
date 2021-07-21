@@ -4,7 +4,7 @@ import EachQualification from "./EachQualification";
 
 function QualificationCategory({list, category}) {
     return (
-        <div className="flex flex-col space-y-8">
+        <div className="used-flex-template">
             <p className="flex text-xl font-medium text-gray-900 space-x-2">
                 <FontAwesomeIcon className="h-6" icon={category === 'Education' ? faGraduationCap : faBriefcase} />
                 <span>{category}</span>

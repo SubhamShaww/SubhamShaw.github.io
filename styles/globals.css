@@ -95,6 +95,50 @@
         @apply grid gap-y-2 sm:grid-flow-col sm:auto-cols-max sm:gap-x-4;
     }
 
+    .used-flex-template {
+        @apply flex flex-col space-y-8;
+    }
+
+    .used-flex-template-2 {
+        @apply flex flex-col space-y-6;
+    }
+
+    .slider {
+        @apply relative;
+        @apply flex items-center justify-center;
+        @apply w-full;
+    }
+
+    .left-slider-btn {
+        @apply absolute;
+        @apply top-1/2 left-[5%];
+        @apply h-10;
+        @apply z-10;
+        @apply cursor-pointer;
+        @apply select-none;
+        @apply invisible sm:visible;
+    }
+
+    .right-slider-btn {
+        @apply absolute;
+        @apply top-1/2 right-[5%];
+        @apply h-10;
+        @apply z-10;
+        @apply cursor-pointer;
+        @apply select-none;
+        @apply invisible sm:visible;
+    }
+
+    .slide {
+        @apply opacity-0;
+        @apply duration-1000 ease-linear;
+    }
+
+    .slide.active {
+        @apply opacity-100;
+        @apply transform scale-105;
+    }
+
     .details-title {
         @apply text-gray-900;
         @apply text-lg font-black;
