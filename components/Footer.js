@@ -2,7 +2,7 @@ import {MailIcon} from "@heroicons/react/outline";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub, faLinkedin, faFacebook} from "@fortawesome/free-brands-svg-icons";
 
-function Footer({gmail, linkedin, github, facebook}) {
+function Footer({linkedin, github, facebook}) {
     return (
         <div className="footer-box">
             {/* left */}
@@ -37,15 +37,6 @@ function Footer({gmail, linkedin, github, facebook}) {
                     className="btn-contact"
                 >
                     <FontAwesomeIcon className="h-4" icon={faGithub} />
-                </a>
-
-                <a
-                    href={`mailto:${gmail}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-contact"
-                >
-                    <MailIcon className="h-4" />
                 </a>
             </div>
         </div>

@@ -19,6 +19,13 @@
         @apply px-2 py-2 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:bg-transparent focus:outline-none;
     }
 
+    .project-remind-btn {
+        @apply px-4 py-3 bg-white border border-white;
+        @apply font-medium text-yellow-600;
+        @apply rounded-full cursor-pointer;
+        @apply hover:bg-transparent hover:text-white;
+    }
+
     progress {
         -webkit-appearance: none;
         height: 1rem;
@@ -37,6 +44,12 @@
         background-image: url('/pattern-bg.png');
         background-position: center;
         background-size: cover;
+    }
+
+    .bg-image-2 {
+        background-image: url('/worldmapbg.png');
+        background-size: cover;
+        background-position: center;
     }
 
     .section-bg-color {
@@ -76,6 +89,16 @@
 
     .btns-grid-template {
         @apply grid gap-y-2 sm:grid-flow-col sm:auto-cols-max sm:gap-x-4;
+    }
+
+    .details-title {
+        @apply text-gray-900;
+        @apply text-lg font-black;
+    }
+
+    .details-text {
+        @apply text-gray-500;
+        @apply text-sm;
     }
 
     .footer-box {

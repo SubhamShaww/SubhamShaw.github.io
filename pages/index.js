@@ -6,6 +6,8 @@ import RecentProjects from '../components/RecentProjects';
 import db from "../firebaseConfig";
 import Qualification from "../components/Qualification";
 import Services from "../components/Services";
+import ProjectReminder from "../components/ProjectReminder";
+import ContactDetails from "../components/ContactDetails";
 
 export default function Home({profileInfo, skillsInfo, qualificationData, projects, contacts}) {
     return (
@@ -31,11 +33,17 @@ export default function Home({profileInfo, skillsInfo, qualificationData, projec
 
             <RecentProjects projects={projects} />
 
+            <ProjectReminder />
+
+            <ContactDetails
+                gmail={contacts[0].gmail}
+                mobile={contacts[0].mobile}
+            />
+
             {/* Footer */}
             <Footer
                 linkedin={contacts[0].linkedin}
                 github={contacts[0].github}
-                gmail={contacts[0].gmail}
                 facebook={contacts[0].facebook}
             />
         </div>
