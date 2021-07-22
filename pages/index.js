@@ -11,7 +11,7 @@ import ContactDetails from "../components/ContactDetails";
 
 export default function Home({profileInfo, skillsInfo, qualificationData, projects, contacts}) {
     return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full h-screen flex flex-col">
             <Head>
                 <title>Portfolio</title>
                 <meta name="description" content="Portfolio of Subham Shaw" />

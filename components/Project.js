@@ -5,7 +5,7 @@ function Project({image = "", title = "", website = "", github = ""}) {
     return (
         <div className="used-flex-template">
             {/* top */}
-            <Image src={image} layout="responsive" className="slider-image" width={300} height={200} />
+            <Image loading="lazy" src={image} layout="responsive" className="slider-image" width={300} height={200} />
 
             {/* bottom */}
             <div className="used-flex-template-2">
