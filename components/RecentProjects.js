@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 import Project from './Project';
-import {ArrowCircleLeftIcon, ArrowCircleRightIcon} from "@heroicons/react/outline";
+import {ArrowCircleLeftIcon, ArrowCircleRightIcon} from "@heroicons/react/solid";
 
 function RecentProjects({projects}) {
     const [current, setCurrent] = useState(0);
@@ -47,7 +47,7 @@ function RecentProjects({projects}) {
     useEffect(() => {
         const interval = setInterval(() => {
             autoPlayRef.current();
-        }, 3500);
+        }, 4000);
 
         return () => clearInterval(interval);
     });

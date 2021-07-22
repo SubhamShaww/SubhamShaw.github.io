@@ -5,7 +5,7 @@ function Footer({linkedin, github, facebook}) {
     return (
         <div className="footer-box">
             {/* left */}
-            <p className="flex-grow text-sm font-semibold text-gray-100 sm:text-lg">
+            <p className="flex-grow text-lg font-semibold text-gray-100">
                 SUBHAM SHAW
             </p>
 

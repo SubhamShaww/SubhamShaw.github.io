@@ -7,6 +7,42 @@
         scroll-behavior: smooth;
     }
 
+    @media screen and (max-width: 320px) {
+       html {
+        font-size: 40%;
+       }
+    }
+
+    @media screen and (max-width: 640px) {
+        html {
+            font-size: 50%;
+        }
+    }
+
+    @media screen and (max-width: 998px) {
+        html {
+            font-size: 62.5%;
+        }
+    }
+
+    @media screen and (max-width: 1280px) {
+        html {
+            font-size: 70%;
+        }
+    }
+
+    @media screen and (max-width: 1440px) {
+        html {
+            font-size: 80%;
+        }
+    }
+
+    @media screen and (max-width: 3200px) {
+        html {
+            font-size: 90%;
+        }
+    }
+
     .btn {
         @apply px-4 py-3 font-medium text-white bg-yellow-600 border rounded-full cursor-pointer hover:border-yellow-600 hover:text-gray-900 hover:bg-transparent focus:outline-none;
     }
@@ -112,34 +148,38 @@
         @apply w-full;
     }
 
-    .left-slider-btn {
+    .slider-arrow {
+        @apply rounded-full;
         @apply absolute;
-        @apply top-1/2 left-[5%];
         @apply h-10;
         @apply z-10;
         @apply cursor-pointer;
         @apply select-none;
-        @apply invisible sm:visible;
+        @apply invisible lg:visible;
+        @apply hover:text-yellow-600;
+    }
+
+    .left-slider-btn {
+        @apply slider-arrow;
+        @apply top-1/2 left-[5%];
     }
 
     .right-slider-btn {
-        @apply absolute;
+        @apply slider-arrow;
         @apply top-1/2 right-[5%];
-        @apply h-10;
-        @apply z-10;
-        @apply cursor-pointer;
-        @apply select-none;
-        @apply invisible sm:visible;
     }
 
     .slide {
         @apply opacity-0;
-        @apply duration-1000 ease-linear;
+        @apply duration-1000 ease-out;
     }
 
     .slide.active {
         @apply opacity-100;
-        @apply transform scale-105;
+    }
+
+    .slider-image {
+        @apply opacity-90;
     }
 
     .details-title {
