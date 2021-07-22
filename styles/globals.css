@@ -95,6 +95,10 @@
         @apply grid gap-y-2 sm:grid-flow-col sm:auto-cols-max sm:gap-x-4;
     }
 
+    .btns-grid-template-2 {
+        @apply w-full grid gap-y-2 sm:grid-cols-2 sm:gap-x-[10%];
+    }
+
     .used-flex-template {
         @apply flex flex-col space-y-8;
     }
@@ -105,7 +109,6 @@
 
     .slider {
         @apply relative;
-        @apply flex items-center justify-center;
         @apply w-full;
     }
 

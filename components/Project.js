@@ -13,7 +13,7 @@ function Project({image = "", title = "", website = "", github = ""}) {
                     {title}
                 </p>
 
-                <div className="btns-grid-template">
+                <div className="btns-grid-template-2">
                     <a
                         href={website}
                         target="_blank"

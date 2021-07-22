@@ -1,10 +1,32 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import Project from './Project';
 import {ArrowCircleLeftIcon, ArrowCircleRightIcon} from "@heroicons/react/outline";
 
 function RecentProjects({projects}) {
     const [current, setCurrent] = useState(0);
     const length = projects.length;
+    const autoPlayRef = useRef(null);
+
+    let startingX, movingX;
+
+    function touchStart(e) {
+        startingX = e.touches[0].clientX;
+    }
+
+    function touchMove(e) {
+        movingX = e.touches[0].clientX;
+    }
+
+    function touchEnd() {
+        if (startingX + 100 < movingX) {
+            //console.log('swipe right');
+            prevSlide();
+
+        } else if (startingX - 100 > movingX) {
+            //console.log('swipe left');
+            nextSlide();
+        }
+    }
 
     if (!Array.isArray(projects) || projects.length <= 0) {
         return null;
@@ -19,17 +41,23 @@ function RecentProjects({projects}) {
     }
 
     useEffect(() => {
-        while (length > 1) {
-            setInterval(nextSlide, 2000);
-        }
-    }, []);
+        autoPlayRef.current = nextSlide;
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            autoPlayRef.current();
+        }, 3500);
+
+        return () => clearInterval(interval);
+    });
 
     return (
         <div className="section-box section-bg-color">
             <p className="section-heading-1">My Portfolio</p>
             <p className="section-heading-2">Recent Projects</p>
 
-            <div className="slider">
+            <div className="slider" onTouchStart={touchStart} onTouchMove={touchMove} onTouchEnd={touchEnd}>
                 {projects?.map((project, index) => (
                     <div key={project.id} className={index === current ? 'slide active' : 'slide'}>
                         {
