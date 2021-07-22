@@ -1,42 +1,41 @@
-import { MailIcon } from "@heroicons/react/outline";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faGithub, faLinkedin, faFacebook} from "@fortawesome/free-brands-svg-icons";
 
-function Footer({ gmail, linkedin, github }) {
+function Footer({linkedin, github, facebook}) {
     return (
-        <div className="bg-gray-900 flex items-center px-[5%] py-5 text-sm sticky">
+        <div className="footer-box">
             {/* left */}
-            <p className="flex-grow text-gray-100 font-semibold text-lg sm:text-xl">
-                GET IN TOUCH
+            <p className="flex-grow text-lg font-semibold text-gray-100">
+                SUBHAM SHAW
             </p>
 
             {/* right */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
+                <a
+                    href={facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-contact"
+                >
+                    <FontAwesomeIcon className="h-4" icon={faFacebook} />
+                </a>
+
                 <a
                     href={linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-contact w-full sm:w-min"
+                    className="btn-contact"
                 >
-                    <FontAwesomeIcon className="h-6" icon={faLinkedin} />
+                    <FontAwesomeIcon className="h-4" icon={faLinkedin} />
                 </a>
 
                 <a
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-contact w-full sm:w-min"
+                    className="btn-contact"
                 >
-                    <FontAwesomeIcon className="h-6" icon={faGithub} />
-                </a>
-
-                <a
-                    href={`mailto:${gmail}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-contact w-full sm:w-min"
-                >
-                    <MailIcon className="h-6" />
+                    <FontAwesomeIcon className="h-4" icon={faGithub} />
                 </a>
             </div>
         </div>

@@ -1,21 +1,23 @@
 import Image from "next/image";
-import { DocumentDownloadIcon } from "@heroicons/react/outline";
+import {DocumentDownloadIcon, IdentificationIcon} from "@heroicons/react/outline";
 
-function Intro({ picture, resume }) {
+function Intro({picture, resume, designation}) {
     return (
-        <div className="flex flex-col items-center p-[5%] space-y-10 sm:space-y-0 sm:flex-row justify-center sm:space-x-[15%] bg-gray-100">
+        <div className="intro-box">
             {/* left */}
             <Image
                 src={picture}
-                height={300}
-                width={300}
-                className="rounded-full"
+                height={260}
+                width={260}
+                layout="responsive"
+                objectFit="cover"
+                className="rounded-full select-none"
             />
 
             {/* right */}
-            <div className="flex flex-col items-center sm:items-start">
+            <div className="flex flex-col space-y-6">
                 {/* top */}
-                <div className="space-y-2 text-center sm:text-left">
+                <div className="space-y-2">
                     <p className="text-lg font-medium text-yellow-600">
                         Hi, I am
                     </p>
@@ -23,22 +25,33 @@ function Intro({ picture, resume }) {
                         Subham Shaw
                     </p>
                     <p className="text-lg font-medium text-gray-900">
-                        Software Engineer
+                        {designation}
                     </p>
                 </div>
 
                 {/* bottom */}
-                <a
-                    href={resume}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn w-full sm:w-min mt-6"
-                >
-                    <div className="flex space-x-2 justify-center items-center">
-                        <DocumentDownloadIcon className="h-6" />
-                        <p>Resume</p>
-                    </div>
-                </a>
+                <div className="btns-grid-template">
+                    <a
+                        href={resume}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full select-none btn sm:w-auto"
+                    >
+                        <div className="flex justify-center space-x-2">
+                            <DocumentDownloadIcon className="h-6" />
+                            <p>Resume</p>
+                        </div>
+                    </a>
+                    <a
+                        href="#contact"
+                        className="w-full select-none btn-2 sm:w-auto"
+                    >
+                        <div className="flex justify-center space-x-2">
+                            <IdentificationIcon className="h-6" />
+                            <p>Contact</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     );

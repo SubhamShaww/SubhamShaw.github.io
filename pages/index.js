@@ -1,10 +1,15 @@
 import Head from "next/head";
 import Footer from "../components/Footer";
 import Intro from "../components/Intro";
-import Project from "../components/Project";
+import Expertise from '../components/Expertise';
+import RecentProjects from '../components/RecentProjects';
 import db from "../firebaseConfig";
+import Qualification from "../components/Qualification";
+import Services from "../components/Services";
+import ProjectReminder from "../components/ProjectReminder";
+import ContactDetails from "../components/ContactDetails";
 
-export default function Home({ profileInfo, projects, contacts }) {
+export default function Home({profileInfo, skillsInfo, qualificationData, projects, contacts}) {
     return (
         <div className="w-full h-screen flex flex-col">
             <Head>
@@ -17,30 +22,29 @@ export default function Home({ profileInfo, projects, contacts }) {
             <Intro
                 picture={profileInfo[0].picture}
                 resume={profileInfo[0].resume}
+                designation={profileInfo[0].designation}
             />
 
-            <div className="flex-grow">
-                <p className="text-3xl text-center font-black text-gray-900 mt-12">
-                    Recent Projects
-                </p>
-                <div className="flex flex-col space-y-10 p-[5%] sm:flex-row sm:space-y-0 sm:space-x-10  sm:overflow-x-scroll sm:mx-[5%]">
-                    {projects?.map((project) => (
-                        <Project
-                            key={project.id}
-                            image={project.image}
-                            title={project.title}
-                            website={project.website}
-                            github={project.github}
-                        />
-                    ))}
-                </div>
-            </div>
+            <Expertise skills={skillsInfo} />
+
+            <Qualification qualification={qualificationData} />
+
+            <Services />
+
+            <RecentProjects projects={projects} />
+
+            <ProjectReminder />
+
+            <ContactDetails
+                gmail={contacts[0].gmail}
+                mobile={contacts[0].mobile}
+            />
 
             {/* Footer */}
             <Footer
                 linkedin={contacts[0].linkedin}
                 github={contacts[0].github}
-                gmail={contacts[0].gmail}
+                facebook={contacts[0].facebook}
             />
         </div>
     );
@@ -53,6 +57,53 @@ export const getStaticProps = async () => {
         id: info.id,
         ...info.data(),
     }));
+
+    const skillsObject = await db.collection("skills").get();
+
+    const skillsInfo = skillsObject.docs.map((skills) => ({
+        id: skills.id,
+        ...skills.data(),
+    }));
+
+    const qualificationObject = await db.collection("qualification").get();
+
+    const qualificationInfo = qualificationObject.docs.map((qualification) => ({
+        id: qualification.id,
+        ...qualification.data(),
+    }));
+
+    let qualificationData = {
+        education: {
+            id: qualificationInfo[0].id,
+            list: []
+        },
+        experience: {
+            id: qualificationInfo[1].id,
+            list: []
+        }
+    }
+
+    db.collection("qualification")
+        .doc(qualificationData.education.id)
+        .collection("educationList")
+        .orderBy("startYear", "desc")
+        .onSnapshot((snapshot) =>
+            qualificationData.education.list = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }))
+        );
+
+    db.collection("qualification")
+        .doc(qualificationData.experience.id)
+        .collection("experienceList")
+        .orderBy("startYear", "desc")
+        .onSnapshot((snapshot) =>
+            qualificationData.experience.list = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }))
+        );
 
     const projectObject = await db
         .collection("projects")
@@ -73,7 +124,7 @@ export const getStaticProps = async () => {
     }));
 
     return {
-        props: { profileInfo, projects, contacts },
+        props: {profileInfo, skillsInfo, qualificationData, projects, contacts},
         revalidate: 600,
     };
 };
