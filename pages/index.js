@@ -44,7 +44,7 @@ export default function Home({profileInfo, skillsInfo, qualificationData, projec
             <Footer
                 linkedin={contacts[0].linkedin}
                 github={contacts[0].github}
-                facebook={contacts[0].facebook}
+                twitter={contacts[0].twitter}
             />
         </div>
     );

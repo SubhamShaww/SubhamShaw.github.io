@@ -1,7 +1,7 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faGithub, faLinkedin, faFacebook} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-function Footer({linkedin, github, facebook}) {
+function Footer({ linkedin, github, twitter }) {
     return (
         <div className="footer-box">
             {/* left */}
@@ -11,32 +11,42 @@ function Footer({linkedin, github, facebook}) {
 
             {/* right */}
             <div className="flex items-center space-x-2">
-                <a
-                    href={facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-contact"
-                >
-                    <FontAwesomeIcon className="h-4" icon={faFacebook} />
-                </a>
+                {twitter ?
+                    (<a
+                        href={twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-contact"
+                    >
+                        <FontAwesomeIcon className="h-4" icon={faTwitter} />
+                    </a>)
+                    : ""
+                }
 
-                <a
-                    href={linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-contact"
-                >
-                    <FontAwesomeIcon className="h-4" icon={faLinkedin} />
-                </a>
+                {linkedin ?
+                    (<a
+                        href={linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-contact"
+                    >
+                        <FontAwesomeIcon className="h-4" icon={faLinkedin} />
+                    </a>)
+                    : ""
+                }
 
-                <a
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-contact"
-                >
-                    <FontAwesomeIcon className="h-4" icon={faGithub} />
-                </a>
+                {github ?
+                    (<a
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-contact"
+                    >
+                        <FontAwesomeIcon className="h-4" icon={faGithub} />
+                    </a>)
+                    : ""
+                }
+
             </div>
         </div>
     );
